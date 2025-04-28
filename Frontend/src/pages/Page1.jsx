@@ -10,7 +10,7 @@ const Page1 = () => {
         <div>
           <h1 className="text-3xl text-white font-[font2]">
             DEV<span className="text-[#E64500] text-3xl font-bold">.</span>
-            <span className="font-[font1]  ">KARTIK</span>
+            <span className="font-[font1]  ">PURVESH</span>
           </h1>
         </div>
         <div className="absolute flex space-x-4 top-15 right-0">

@@ -1,5 +1,6 @@
 import { MoveRight } from "lucide-react";
 import React from "react";
+import { motion } from "motion/react"; // Correct import (motion/react was wrong)
 import thumbnail1 from "../assets/images/Rectangle 22.jpg"; // Adjust path if necessary
 
 const Page3 = () => {
@@ -81,9 +82,12 @@ const Page3 = () => {
   {/* Projects Grid */}
   <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:px-15">
     {projects.map((project, index) => (
-      <div
+      <motion.div
+        initial={{ opacity: 0.5, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
         key={index}
-        className="border border-[#1e1e1e] overflow-hidden flex flex-col hover:shadow-lg transition-all"
+        className="border border-[#1e1e1e] overflow-hidden flex flex-col hover:border-[#3b3b3b] transition-all duration-150 delay-75 ease-in-out"
       >
         <img
           className="w-full h-48 md:h-56 object-cover"
@@ -126,7 +130,7 @@ const Page3 = () => {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     ))}
   </div>
 </div>

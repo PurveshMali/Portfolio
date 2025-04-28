@@ -1,20 +1,40 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Page1 from './pages/Page1'
-import CursorTrail from './animations/CursorTrail'
-import Page2 from './pages/Page2'
-import Page3 from './pages/Page3'
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
+import Page1 from "./pages/Page1";
+import CursorTrail from "./animations/CursorTrail";
+import Page2 from "./pages/Page2";
+import Page3 from "./pages/Page3";
+import LoadingAnimation from "./animations/LoadingAnimation";
 
 const App = () => {
-  return (
-    <div className='bg-black h-auto w-full text-white border-1 border-gray-400'>
-      <CursorTrail />
-      <Navbar />
-      <Page1 />
-      {/* <Page2 /> */}
-      <Page3 />
-    </div>
-  )
-}
+  const [loading, setLoading] = useState(true);
 
-export default App
+  useEffect(() => {
+    // Simulate loading time (e.g., 1.5 seconds)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer); // cleanup
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <LoadingAnimation />
+      ) : (
+        <div className="your-main-website-content">
+          {/* Your website code here */}
+          <div className="bg-black h-auto w-full text-white border-1 border-gray-400">
+            <CursorTrail />
+            <Navbar />
+            <Page1 />
+            <Page3 />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default App;

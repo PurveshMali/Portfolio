@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: font1;
+    src: url('./assets/fonts/i7dMIFZifjKcF5UAWdDRaPpZUFWaHg.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: font2;
+    src: url('./assets/fonts/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: font3;
+    src: url('./assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: font4;
+    src: url('./assets/fonts/InstrumentSerif-Italic.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: font5;
+    src: url('./assets/fonts/InstrumentSerif-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: font6;
+    src: url('./assets/fonts/DotGothic16-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: font7;
+    src: url('./assets/fonts/BonaNovaSC-Bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: font8;
+    src: url('./assets/fonts/BonaNovaSC-Italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: font9;
+    src: url('./assets/fonts/BonaNovaSC-Regular.woff2') format('woff2');
+}

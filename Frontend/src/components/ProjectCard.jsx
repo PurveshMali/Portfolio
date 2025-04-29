@@ -1,47 +1,75 @@
 import React from "react";
+import { motion, Reorder } from "framer-motion"; // ✅ Corrected import
+import { MoveRight } from "lucide-react";
+import { Tooltip } from "react-tooltip";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }) => {
+  const [tags, setTags] = React.useState(project.tags);
+
   return (
-    <div className="px-25 w-full h-auto flex justify-between items-center space-x-10 mt-10">
-      <div className="border-1 border-[#1e1e1e] w-1/3 h-auto display flex flex-col justify-center items-center">
-        <div className="w-full h-auto">
-          <img className="w-full aspect-3/2" src={thumbnail1} alt="" />
-        </div>
-        <div className="w-full h-auto flex flex-wrap justify-start items-start px-4 py-4 gap-2 border-b border-[#1e1e1e]">
-          {projects[1].tags.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-black border-2 border-[#1e1e1e] py-1 px-4 rounded-md flex justify-center items-center"
+    <motion.div
+      initial={{ opacity: 0.5, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="group border border-[#1e1e1e] overflow-hidden flex flex-col hover:border-[#3b3b3b] hover:bg-gradient-to-br from-[#565656] to-[#000000] transition-all duration-150 delay-75 ease-in-out"
+    >
+      <img
+        className="w-full h-48 md:h-56 object-cover group-hover:scale-101 transition-transform duration-300 ease-in-out"
+        src={project.image}
+        alt={project.title}
+      />
+      {/* Reorderable Tags */}
+      <div className="p-4 flex flex-wrap gap-2 border-b border-t border-[#1e1e1e]">
+        <Reorder.Group
+          axis="x"
+          values={tags}
+          onReorder={setTags}
+          className="flex flex-wrap gap-2"
+        >
+          {tags.map((skill, idx) => (
+            <Reorder.Item
+              key={skill}
+              value={skill}
+              whileHover={{ rotate: -5, scale: 1.01 }}
+              className="cursor-grab bg-black border border-[#1e1e1e] text-gray-300 text-xs md:text-sm px-3 py-1 rounded-md font-mono hover:border-[#3b3b3b]"
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Drag to play with tags"
             >
-              <h3 className="text-sm font-[font10] text-gray-300">{skill}</h3>
-            </div>
+              {skill}
+            </Reorder.Item>
           ))}
+        </Reorder.Group>
+      </div>
+
+      {/* Content */}
+      <div className="p-4 flex flex-col justify-between flex-grow">
+        <div>
+          <h2 className="text-[#E64500] text-xl md:text-2xl font-bold font-[font1] mb-2">
+            {project.title}
+          </h2>
+          <p className="text-[#B3B3B3] font-[font10] text-sm md:text-base">
+            {project.description}
+          </p>
         </div>
-
-        <div className="w-full h-auto">
-          <div className="w-full p-4">
-            <h1 className="text-4xl tracking-tighter font-[font1] text-[#E64500] font-bold">
-              Title
-            </h1>
-            <h3 className="text-[#B3B3B3] font-[font10] mt-2">
-              Description Lorem, ipsum dolor sit amet consectetur adipisicing
-              elit. Amet eligendi odio repellendus.
-            </h3>
-          </div>
-
-          <div className="w-full p-4 flex justify-start space-x-5 items-center">
-            <button className="border-2 border-[#1e1e1e] hover:border-[#e6450042] transition-all ease-in-out duration-100 cursor-pointer px-4 py-2 font-[font10]">
-              Live Demo
-            </button>
-            <button className="border-2 border-[#1e1e1e] px-4 py-2 bg-[#202020] font-[font10]  hover:bg-black hover:border-[#1e1e1e] transition-all ease-in-out duration-100 cursor-pointer">
-              Github Repo
-            </button>
-          </div>
+        <div className="flex flex-wrap space-x-4 mt-6">
+          <a
+            href={project.siteLink.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-[#1e1e1e] hover:border-[#e6450042] text-sm px-4 py-2 font-[font10] transition-all"
+          >
+            Live Demo
+          </a>
+          <a
+            href={project.siteLink.github}
+            className="border-2 border-[#1e1e1e] bg-[#202020] hover:bg-black text-sm px-4 py-2 font-[font10] transition-all"
+          >
+            Github Repo
+          </a>
         </div>
       </div>
-      {/* <div className="border-1 w-1/3 h-30 "></div>
-        <div className="border-1 w-1/3 h-30 "></div> */}
-    </div>
+      <Tooltip id="my-tooltip" style={{ backgroundColor: "#e64500b4", color: "white" }}/>
+    </motion.div>
   );
 };
 

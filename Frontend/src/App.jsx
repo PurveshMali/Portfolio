@@ -5,6 +5,7 @@ import CursorTrail from "./animations/CursorTrail";
 import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import LoadingAnimation from "./animations/LoadingAnimation";
+import Page4 from "./pages/Page4";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ const App = () => {
             <Navbar />
             <Page1 />
             <Page3 />
+            <Page4 />
           </div>
         </div>
       )}

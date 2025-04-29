@@ -26,7 +26,7 @@ const Navbar = () => {
     <div className="flex justify-between items-center bg-black px-4 py-3 border-b border-gray-400 space-x-4 md:space-x-15">
       {/* Left icons */}
       <div className="flex items-center space-x-2">
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-1 hidden md:flex">
           <div className="bg-orange-500 w-3 h-3 rounded-full"></div>
           <div className="bg-yellow-500 w-3 h-3 rounded-full"></div>
           <div className="bg-green-500 w-3 h-3 rounded-full"></div>

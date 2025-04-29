@@ -31,7 +31,7 @@ const Page1 = () => {
         {/* Left Text Section */}
         <div className="flex flex-col items-start space-y-6 w-full md:w-1/2">
           <div className="flex items-center space-x-4">
-            <h1 className="text-[5vw] md:text-5xl font-[font6] tracking-wide text-[#E64500]">
+            <h1 className="text-3xl md:text-5xl font-[font6] tracking-wide text-[#E64500]">
               Hey There,
             </h1>
             <motion.div
@@ -39,7 +39,7 @@ const Page1 = () => {
               transition={{ duration: 1 }}
               whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
             >
-              <Percent className="text-gray-300" size={70} />
+              <Percent className="text-gray-300" size={50} />
             </motion.div>
           </div>
 

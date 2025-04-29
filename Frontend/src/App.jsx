@@ -6,6 +6,7 @@ import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import LoadingAnimation from "./animations/LoadingAnimation";
 import Page4 from "./pages/Page4";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ const App = () => {
             <Page1 />
             <Page3 />
             <Page4 />
+            <Footer />
           </div>
         </div>
       )}

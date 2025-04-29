@@ -124,7 +124,7 @@ const Page4 = () => {
           desc: "Code hosting platform for version control and collaboration.",
         },
         {
-          name: "MCP Server",
+          name: "MCP",
           img: "https://mintlify.s3.us-west-1.amazonaws.com/mcp/logo/dark.svg",
           desc: "A Model Context Protocol tool for building smart AI agents.",
         },

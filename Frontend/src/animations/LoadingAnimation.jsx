@@ -13,7 +13,7 @@ const LoadingAnimation = () => {
             className="w-4 h-4 rounded-full"
             style={{ backgroundColor: color }}
             animate={{
-              scale: [1, 1.3, 1],  // Scale up and back down
+              scale: [1, 1.4, 1],  // Scale up and back down
             }}
             transition={{
               duration: 0.6,

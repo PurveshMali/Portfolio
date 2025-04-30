@@ -90,13 +90,13 @@ const Navbar = () => {
       {/* Menu overlay */}
       {isMenuOpen && (
         <motion.div
-          initial={{ x: 0, y: -500, opacity: 1 }}
-          animate={{ x: 0, y: 0, opacity: 1 }}
-          exit={{ x: 0, y: -500, opacity: 0 }}
-          transition={{ duration: 0.7, ease: "easeIn" }}
-          className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center z-50"
+          initial={{ x: "100%",  opacity: 0 }}
+          animate={{ x: 0,  opacity: 1 }}
+          exit={{ x: "100%", opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          className="fixed top-0 right-0 w-3/4 md:w-2/4 lg:w-2/5 border-l-1  h-screen opacity-60 backdrop-blur-lg bg-[#000000ea] flex flex-col justify-center items-center z-50"
         >
-          <div className="w-full h-full bg-black rounded-lg p-8 md:p-10 space-y-6 relative z-50">
+          <div className="w-full h-full rounded-lg p-8 md:p-10 space-y-2 py-5 relative z-50">
             <motion.button
               initial={{ rotate: 0 }}
               whileHover={{ rotate: 90, scale: 1.01 }}
@@ -107,10 +107,10 @@ const Navbar = () => {
             >
               <X
                 className="text-gray-200 group-hover:text-[#E64500]"
-                size={24}
+                size={20}
               />
             </motion.button>
-            <h2 className="text-xl md:text-2xl text-[#59F3A6] font-mono text-center">
+            <h2 className="text-md md:text-2xl text-[#59F3A6] font-mono text-center">
               Developer Protocol
             </h2>
             <div className="flex flex-col items-center text-center space-y-6 mt-10">

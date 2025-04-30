@@ -50,6 +50,17 @@ const App = () => {
               secondary: "#fff",
             },
           },
+          loading: {
+            style: {
+              background: "#1f1f1f",
+              color: "#FFCD29",
+              border: "1px solid #FFCD29",
+            },
+            iconTheme: {
+              primary: "#FFCD29",
+              secondary: "#fff",
+            },
+          },
         }}
       />
       {loading ? (

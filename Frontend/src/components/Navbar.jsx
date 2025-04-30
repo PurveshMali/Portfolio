@@ -8,6 +8,25 @@ const Navbar = () => {
   const fullText = "Welcome to the developer protocol.";
   const typingSpeed = 80; // milliseconds per character
 
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      setShowNavbar(false);
+    } else {
+      // Scrolling up
+      setShowNavbar(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
+
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -23,10 +42,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="flex justify-between items-center bg-black px-4 py-3 border-b border-gray-400 space-x-4 md:space-x-15">
+    <div
+      className={`flex fixed top-0 left-0 right-0 z-20 backdrop-blur-sm justify-between items-center bg-[#000000a4] px-4 py-3 border border-gray-400 space-x-4 md:space-x-15 transition-all duration-500 ease-in-out ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"}`}
+    >
       {/* Left icons */}
       <div className="flex items-center space-x-2">
-        <div className="flex items-center space-x-1 hidden md:flex">
+        <div className="items-center space-x-1 hidden md:flex">
           <div className="bg-orange-500 w-3 h-3 rounded-full"></div>
           <div className="bg-yellow-500 w-3 h-3 rounded-full"></div>
           <div className="bg-green-500 w-3 h-3 rounded-full"></div>
@@ -72,18 +94,21 @@ const Navbar = () => {
           animate={{ x: 0, y: 0, opacity: 1 }}
           exit={{ x: 0, y: -500, opacity: 0 }}
           transition={{ duration: 0.7, ease: "easeIn" }}
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex flex-col justify-center items-center z-50"
+          className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center z-50"
         >
-          <div className="w-full h-full bg-black rounded-lg p-8 md:p-10 space-y-6 relative">
+          <div className="w-full h-full bg-black rounded-lg p-8 md:p-10 space-y-6 relative z-50">
             <motion.button
               initial={{ rotate: 0 }}
-              whileHover={{rotate: 90, scale: 1.01}}
+              whileHover={{ rotate: 90, scale: 1.01 }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
               exit={{ rotate: 0, scale: 0 }}
               className="group absolute top-4 right-4 text-orange-500 hover:bg-[#1E1E1E]  p-2 cursor-pointer rounded-full transition duration-300 ease-in-out"
               onClick={() => setIsMenuOpen(false)}
             >
-              <X className="text-gray-200 group-hover:text-[#E64500]" size={24} />
+              <X
+                className="text-gray-200 group-hover:text-[#E64500]"
+                size={24}
+              />
             </motion.button>
             <h2 className="text-xl md:text-2xl text-[#59F3A6] font-mono text-center">
               Developer Protocol

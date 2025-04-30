@@ -77,8 +77,8 @@ const Page2 = forwardRef((props, ref) => {
         </div>
 
         <div className="w-full h-auto py-4 border-2 border-[#393939] flex justify-center items-center px-4">
-          <h3 className="text-gray-400 font-[font10] text-sm text-center">
-            With great power comes great electricity bill
+          <h3 className="text-gray-400 font-[font10] text-base text-center">
+            With great power, comes great electricity bill
           </h3>
         </div>
 
@@ -89,8 +89,8 @@ const Page2 = forwardRef((props, ref) => {
           />
         </div>
 
-        <div className="w-2/5 sm:w-1/3 md:w-1/5 h-auto py-4 border-2 border-[#393939] flex justify-center items-center px-4 relative top-[-36px]">
-          <h3 className="text-[#c2c2c2] font-[font10] text-sm text-center">
+        <div className="md:w-2/8 w-2/5  h-auto py-4 border-2 border-[#393939] flex justify-center items-center px-4 relative top-[-36px]">
+          <h3 className="text-[#59F3A6] font-[font10] text-sm text-center">
             - Dr. Who
           </h3>
         </div>

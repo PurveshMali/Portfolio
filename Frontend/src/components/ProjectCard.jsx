@@ -7,10 +7,7 @@ const ProjectCard = ({ project }) => {
   const [tags, setTags] = React.useState(project.tags);
 
   return (
-    <motion.div
-      initial={{ opacity: 0.5, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <div
       className="group border border-[#1e1e1e] overflow-hidden flex flex-col hover:border-[#3b3b3b] hover:bg-gradient-to-br from-[#565656] to-[#000000] transition-all duration-150 delay-75 ease-in-out"
     >
       <img
@@ -69,7 +66,7 @@ const ProjectCard = ({ project }) => {
         </div>
       </div>
       <Tooltip id="my-tooltip" style={{ backgroundColor: "#e64500b4", color: "white" }}/>
-    </motion.div>
+    </div>
   );
 };
 

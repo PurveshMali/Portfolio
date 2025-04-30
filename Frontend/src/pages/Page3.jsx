@@ -66,25 +66,16 @@ const Page3 = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-center px-2 md:px-10">
         <div className="flex items-center space-x-4 w-full md:w-auto mb-6 md:mb-0">
-          <motion.h1
-            initial={{ opacity: 0.5, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <h1
             className="text-2xl md:text-3xl text-[#B3B3B3] font-[font10]"
           >
             <span className="text-[#E64500]">#</span>projects
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0.5, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          </h1>
+          <div
             className="hidden md:block w-24 md:w-100 h-[1px] bg-[#FF4D00]"
-          ></motion.div>
+          ></div>
         </div>
-        <motion.div
-          initial={{ opacity: 0.5, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="group flex items-center space-x-2 cursor-pointer"
         >
           <h3 className="text-[#B3B3B3] text-sm md:text-base font-[font10]">
@@ -94,11 +85,11 @@ const Page3 = () => {
             className="text-[#B3B3B3] group-hover:text-[#E64500] transition-all duration-300"
             size={22}
           />
-        </motion.div>
+        </div>
       </div>
 
       {/* Projects Grid */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:px-15">
+      <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:px-15">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}

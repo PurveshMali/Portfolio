@@ -28,7 +28,7 @@ const ContactForm = () => {
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const toastId = toast.loading("Sending...");
 
-    const request = axios.post("http://localhost:5000/api/contact", formData);
+    const request = axios.post("https://portfolio-ok7h.onrender.com/api/contact", formData);
 
     // Ensure loader is visible for at least 3 seconds
     await Promise.all([request, delay(3000)])

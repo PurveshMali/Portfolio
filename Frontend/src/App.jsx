@@ -9,6 +9,7 @@ import Page4 from "./pages/Page4";
 import Footer from "./components/Footer";
 import Page5 from "./pages/Page5";
 import { Toaster } from "react-hot-toast";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   const [loading, setLoading] = useState(true);

@@ -4,8 +4,12 @@ import { ArrowUpRight, Loader } from "lucide-react";
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 
 const ContactForm = () => {
+
+    const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,6 +19,7 @@ const ContactForm = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -28,13 +33,17 @@ const ContactForm = () => {
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const toastId = toast.loading("Sending...");
 
-    const request = axios.post("https://portfolio-ok7h.onrender.com/api/contact", formData);
+    const request = axios.post(
+      "https://portfolio-ok7h.onrender.com/api/contact",
+      formData
+    );
 
     // Ensure loader is visible for at least 3 seconds
     await Promise.all([request, delay(3000)])
       .then(([res]) => {
         if (res.status === 201) {
-            toast.success("Message sent successfully!", { id: toastId });
+          setShowCelebration(true);
+          toast.success("Message sent successfully!", { id: toastId });
           setFormData({ name: "", email: "", message: "" });
         }
       })
@@ -128,7 +137,6 @@ const ContactForm = () => {
                 {isLoading ? (
                   <>
                     <Loader className="animate-spin" size={20} />
-                    <span>Sending...</span>
                   </>
                 ) : (
                   <>
@@ -145,6 +153,25 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
+      {showCelebration && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex flex-col items-center justify-center space-y-6 text-center text-white">
+          <Confetti width={window.innerWidth} height={window.innerHeight} />
+          <h1 className="text-3xl font-bold">🎉 Submission Successful!</h1>
+          <p className="text-md md:text-lg">
+            Thanks for reaching out. We'll get back to you soon.
+          </p>
+          <button
+            onClick={() => {
+              setShowCelebration(false);
+              // If using React Router
+              navigate("/");
+            }}
+            className="mt-4 px-6 py-2 rounded-md bg-white text-black hover:bg-gray-300 transition-all"
+          >
+            Back to Home
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -77,7 +77,7 @@ const Page2 = forwardRef((props, ref) => {
         </div>
 
         <div className="w-full h-auto py-4 border-2 border-[#393939] flex justify-center items-center px-4">
-          <h3 className="text-[#c2c2c2] font-[font10] text-sm text-center">
+          <h3 className="text-gray-400 font-[font10] text-sm text-center">
             With great power comes great electricity bill
           </h3>
         </div>

@@ -166,7 +166,7 @@ const Page4 = () => {
             {/* Category Title */}
             <div className="w-full flex justify-center items-center space-x-5">
               <div className="w-2/5 md:w-1/5 h-[1px] bg-[#1e1e1e]"></div>
-              <h1 className="text-sm text-[#4E4E4E] font-bold font-[font1]">
+              <h1 className="text-sm text-[#4E4E4E] font-bold font-[font1] text-center">
                 {section.category}
               </h1>
               <div className="w-2/5 md:w-1/5 h-[1px] bg-[#1e1e1e]"></div>

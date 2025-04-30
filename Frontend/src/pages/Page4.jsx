@@ -55,7 +55,7 @@ const Page4 = () => {
         },
         {
           name: "Next.js",
-          img: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
+          img: "https://imgs.search.brave.com/C9sOBdg8PXHdzxsPA7c_yL_X7_rukWp_hWK1cIVzj20/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzQ0LzIvbmV4dC1q/cy1pY29uLWxvZ28t/cG5nX3NlZWtsb2dv/LTQ0OTgyNS5wbmc",
           desc: "React framework with SSR and static site generation.",
         },
         {
@@ -65,11 +65,11 @@ const Page4 = () => {
         },
         {
           name: "Express",
-          img: "https://cdn.worldvectorlogo.com/logos/express-109.svg",
+          img: "https://logowik.com/content/uploads/images/express-js1720895493.logowik.com.webp",
           desc: "Minimal and flexible Node.js web application framework.",
         },
         {
-          name: "Tailwind CSS",
+          name: "Tailwind",
           img: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg",
           desc: "Utility-first CSS framework for styling with ease.",
         },

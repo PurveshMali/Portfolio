@@ -8,6 +8,7 @@ import LoadingAnimation from "./animations/LoadingAnimation";
 import Page4 from "./pages/Page4";
 import Footer from "./components/Footer";
 import Page5 from "./pages/Page5";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,33 @@ const App = () => {
 
   return (
     <>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            style: {
+              background: "#333",
+              color: "#fff",
+              border: "1px solid #22c55e",
+            },
+            iconTheme: {
+              primary: "#22c55e",
+              secondary: "#fff",
+            },
+          },
+          error: {
+            style: {
+              background: "#1f1f1f",
+              color: "#ff4d4d",
+              border: "1px solid #ff4d4d",
+            },
+            iconTheme: {
+              primary: "#ff4d4d",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
       {loading ? (
         <LoadingAnimation />
       ) : (

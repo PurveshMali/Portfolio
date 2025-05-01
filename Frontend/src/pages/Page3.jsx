@@ -65,19 +65,14 @@ const Page3 = () => {
     <div className="w-full h-auto px-4 py-10 md:px-10 lg:px-20">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-center px-2 md:px-10">
-        <div className="flex items-center space-x-4 w-full md:w-auto mb-6 md:mb-0">
-          <h1
-            className="text-2xl md:text-3xl text-[#B3B3B3] font-[font10]"
-          >
-            <span className="text-[#E64500]">#</span>projects
+        <div className="flex flex-col md:flex-row  items-center w-full md:w-auto space-y-2 space-x-6 md:mb-0">
+          <h1 className="text-2xl md:text-3xl text-[#B3B3B3] font-[font10]">
+            <span className="text-[#E64500]">#</span>
+            projects
           </h1>
-          <div
-            className="hidden md:block w-24 md:w-100 h-[1px] bg-[#FF4D00]"
-          ></div>
+          <div className=" md:block w-24 md:w-100 h-[1px] bg-[#E64500]"></div>
         </div>
-        <div
-          className="group flex items-center space-x-2 cursor-pointer"
-        >
+        <div className="group flex justify-center items-center space-x-2 cursor-pointer mt-4">
           <h3 className="text-[#B3B3B3] text-sm md:text-base font-[font10]">
             View All
           </h3>

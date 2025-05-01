@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full h-50 border-t border-[#1e1e1e] p-10 flex flex-col space-y-4 items-center justify-center text-gray-300 text-xs md:text-sm font-mono">
+    <div className="w-full border-t border-[#1e1e1e] p-10 flex flex-col space-y-4 items-center justify-center text-gray-300 text-xs md:text-sm font-mono mt-20">
       <h3 className="text-sm text-[#b7b7b7] font-[font10] ">
         Made in 🤍 with <span>DEV.PURVESH</span>
       </h3>

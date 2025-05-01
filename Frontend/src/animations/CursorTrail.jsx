@@ -37,7 +37,7 @@ const CursorTrail = () => {
     <>
       {/* Main cursor */}
       <div
-        className="fixed top-0 left-0 pointer-events-none z-50"
+        className="fixed top-0 left-0 pointer-events-none z-50 hidden md:block "
         style={{
           transform: `translate(${position.x - 4}px, ${position.y - 4}px)`,
           transition: "transform 0.05s linear",

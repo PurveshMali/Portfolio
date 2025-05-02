@@ -1,7 +1,10 @@
 import { Link, MoveRight } from "lucide-react";
 import React from "react";
 import { motion, Reorder } from "motion/react"; // Correct import (motion/react was wrong)
-import thumbnail1 from "../assets/images/Rectangle 22.jpg"; // Adjust path if necessary
+import studentThumbnail from "../assets/thumbnails/studentThumbnail.png";
+import beamongus from "../assets/thumbnails/beamongus.png";
+import powerChoice from "../assets/thumbnails/powerChoice.png";
+import hiresync from "../assets/thumbnails/hiresync.png";
 
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
@@ -9,55 +12,69 @@ import ProjectCard from "../components/ProjectCard";
 const Page3 = () => {
   const projects = [
     {
-      title: "AirPulse",
-      description: "Urban air quality monitoring dashboard",
-      tags: ["React.js", "Node.js", "MongoDB", "APIs"],
+      title: "EduConnect",
+      description: "A platform for students to learn and earn.",
+      tags: ["JavaScript", "React", "Tailwind", "MongoDB", "Node.js", "ML"],
       features: [
-        { icon: "cloud", text: "Live Data" },
-        { icon: "activity", text: "Real-time Graphs" },
-        { icon: "settings", text: "Custom Alerts" },
+        { icon: "users", text: "Community Collaboration" },
+        { icon: "code", text: "Code Sharing" },
+        { icon: "chat", text: "Developer Discussions" },
       ],
       siteLink: {
-        live: "https://airpulse.live",
-        github: "https://github.com/PurveshMali/",
+        live: "https://student-portal-jvjs.vercel.app/",
+        github: "https://github.com/PurveshMali/StudentPortal",
       },
-      image:
-        "https://imgs.search.brave.com/BO3s7kZgr1os8h_vZNs82nbHMK8LakkMjw6iXfcWE58/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kMWNz/YXJrejhvYmU5dS5j/bG91ZGZyb250Lm5l/dC9wb3N0ZXJwcmV2/aWV3cy9kYXJrLWFt/YmllbnQteW91dHVi/ZS10aHVtYm5haWwt/ZGVzaWduLXRlbXBs/YXRlLTZhYTI2OTVm/OTk0YTIyMGVkOWU5/YjRhZTk5ODM1NWE3/X3NjcmVlbi5qcGc_/dHM9MTU3MDg4MjY2/NQ",
-      subtitle: "Breathe Better, Live Smarter",
+      image: studentThumbnail,
+      subtitle: "Collaborate and Share Code",
     },
     {
-      title: "SkillForge",
-      description: "AI-driven career skill recommendations",
-      tags: ["Python", "Flask", "ML", "TailwindCSS"],
+      title: "BeAmongUs",
+      description: "A smart complaint management system for Municipal Corporation.",
+      tags: ["JavaScript", "React", "Tailwind", "MongoDB", "Node.js"],
       features: [
-        { icon: "brain", text: "AI Matching" },
-        { icon: "code", text: "Personalized Roadmaps" },
-        { icon: "zap", text: "Instant Feedback" },
+        { icon: "lightbulb", text: "Innovative Solutions" },
+        { icon: "clock", text: "Time-bound Challenges" },
+        { icon: "trophy", text: "Award-winning Ideas" },
       ],
       siteLink: {
-        live: "https://skillforge.app",
-        github: "https://github.com/PurveshMali/",
+        live: "https://github.com/PurveshMali/Hack-a-Bit",
+        github: "https://github.com/PurveshMali/Hack-a-Bit",
       },
-      image:
-        "https://imgs.search.brave.com/BO3s7kZgr1os8h_vZNs82nbHMK8LakkMjw6iXfcWE58/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kMWNz/YXJrejhvYmU5dS5j/bG91ZGZyb250Lm5l/dC9wb3N0ZXJwcmV2/aWV3cy9kYXJrLWFt/YmllbnQteW91dHVi/ZS10aHVtYm5haWwt/ZGVzaWduLXRlbXBs/YXRlLTZhYTI2OTVm/OTk0YTIyMGVkOWU5/YjRhZTk5ODM1NWE3/X3NjcmVlbi5qcGc_/dHM9MTU3MDg4MjY2/NQ",
-      subtitle: "Forge Your Future",
+      image: beamongus,
+      subtitle: "Hack-a-Bit Project",
     },
     {
-      title: "TaskNest",
-      description: "Smart task management and team collaboration",
-      tags: ["MERN Stack", "Socket.io", "Redux"],
+      title: "PowerChoice",
+      description:
+        "Environmental impact assessment of power plant fuel choice using data-driven predicctive modeling.",
+      tags: ["JavaScript", "React", "ML", "Tailwind", "MongoDB", "Express.js", "Recharts"],
       features: [
-        { icon: "clipboard-list", text: "Real-Time Updates" },
-        { icon: "users", text: "Team Boards" },
-        { icon: "bell", text: "Smart Reminders" },
+        { icon: "book", text: "Educational Projects" },
+        { icon: "code", text: "Hands-on Coding" },
+        { icon: "graduation-cap", text: "Learning by Doing" },
       ],
       siteLink: {
-        live: "https://tasknest.app",
-        github: "https://github.com/PurveshMali/",
+        live: "https://github.com/PurveshMali/PBL",
+        github: "https://github.com/PurveshMali/PBL",
       },
-      image:
-        "https://imgs.search.brave.com/BO3s7kZgr1os8h_vZNs82nbHMK8LakkMjw6iXfcWE58/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kMWNz/YXJrejhvYmU5dS5j/bG91ZGZyb250Lm5l/dC9wb3N0ZXJwcmV2/aWV3cy9kYXJrLWFt/YmllbnQteW91dHVi/ZS10aHVtYm5haWwt/ZGVzaWduLXRlbXBs/YXRlLTZhYTI2OTVm/OTk0YTIyMGVkOWU5/YjRhZTk5ODM1NWE3/X3NjcmVlbi5qcGc_/dHM9MTU3MDg4MjY2/NQ",
-      subtitle: "Organize. Collaborate. Achieve.",
+      image:powerChoice,
+      subtitle: "Project-Based Learning",
+    },
+    {
+      title: "HireSync",
+      description:
+        "A mobile application which helps daily wage workers to find jobs.",
+      tags: ["Flutter", "Firebase", "Dart", "ML"],
+      features: [
+        { icon: "react", text: "React Framework" },
+        { icon: "paint-brush", text: "Tailwind CSS Styling" },
+        { icon: "bolt", text: "Fast Performance" },
+      ],
+      siteLink: {
+        github: "https://github.com/PurveshMali/HireSyncHackFest",
+      },
+      image:hiresync,
+      subtitle: "React Application",
     },
   ];
 

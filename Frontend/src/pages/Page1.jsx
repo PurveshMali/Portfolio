@@ -1,4 +1,4 @@
-import { Percent } from "lucide-react";
+import { Download, Percent } from "lucide-react";
 import React, { useRef } from "react";
 import { motion } from "framer-motion"; // Correct import (motion/react was wrong)
 import heroImage from "../assets/images/me.png"; // Adjust path if necessary
@@ -19,6 +19,14 @@ const Page1 = () => {
             <span className="font-[font1]">PURVESH</span>
           </h1>
         </div>
+        <a href="/resume.pdf" download="PurveshMali_Resume.pdf">
+          <button className="group flex items-center justify-center overflow-hidden px-4 py-2 border border-[#3f3f3f] text-[#E64500] font-mono rounded-full transition-all duration-300 ease-in-out cursor-pointer hover:pl-6">
+            <Download size={20} className="transition-transform duration-300" />
+            <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[120px] group-hover:ml-1 transition-all duration-800">
+              Download CV
+            </span>
+          </button>
+        </a>
       </div>
 
       {/* Main Section */}

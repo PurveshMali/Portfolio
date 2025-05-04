@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import React, { forwardRef, useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 const Page2 = forwardRef((props, ref) => {
   const [text, setText] = useState("");
@@ -26,7 +27,8 @@ const Page2 = forwardRef((props, ref) => {
       ref={ref}
       className="w-full h-auto px-6 py-10 md:px-10 lg:px-20 flex flex-col space-y-15 justify-center items-center"
     >
-      <div className="group hover:border-[#76757592] transition-all ease-in-out duration-500 w-full md:w-[80%] lg:w-[60%] border-2 border-[#1E1E1E] h-auto rounded-sm mx-auto">
+      <div 
+      className="group hover:border-[#76757592] transition-all ease-in-out duration-500 w-full md:w-[80%] lg:w-[60%] border-2 border-[#1E1E1E] h-auto rounded-sm mx-auto">
         <div className="w-full bg-[#1E1E1E] h-10 flex justify-between items-center px-4">
           <div className="flex items-center space-x-2">
             <div className="bg-orange-500 w-3 h-3 rounded-full"></div>

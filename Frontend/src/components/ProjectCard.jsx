@@ -7,7 +7,7 @@ const ProjectCard = ({ project }) => {
   const [tags, setTags] = React.useState(project.tags);
 
   return (
-    <div className="group border border-[#1e1e1e] overflow-hidden flex flex-col hover:border-[#0e0e0e] hover:bg-gradient-to-br from-[#343434] to-[#000000] transition-all duration-150 delay-75 ease-in-out">
+    <div className="group border border-[#212121] overflow-hidden flex flex-col hover:border-[#2d2d2d] hover:bg-gradient-to-br from-[#343434] to-[#000000] transition-all duration-150 delay-75 ease-in-out">
       <img
         className="w-full h-48 md:h-56 object-cover group-hover:scale-101 transition-transform duration-300 ease-in-out"
         src={project.image}

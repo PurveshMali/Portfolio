@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Page5 from "./pages/Page5";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
+import FadeInSection from "./animations/FadeInSection";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ const App = () => {
     // Simulate loading time (e.g., 1.5 seconds)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 0.1);
 
     return () => clearTimeout(timer); // cleanup
   }, []);
@@ -72,10 +73,18 @@ const App = () => {
             <CursorTrail />
             <Navbar />
             <Page1 />
-            <Page3 />
-            <Page4 />
-            <Page5 />
-            <Footer />
+            <FadeInSection>
+              <Page3 />
+            </FadeInSection>
+            <FadeInSection>
+              <Page4 />
+            </FadeInSection>
+            <FadeInSection>
+              <Page5 />
+            </FadeInSection>
+            <FadeInSection>
+              <Footer />
+            </FadeInSection>
           </div>
         </div>
       )}

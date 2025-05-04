@@ -8,6 +8,7 @@ import hiresync from "../assets/thumbnails/hiresync.png";
 
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import FadeInSection from "../animations/FadeInSection";
 
 const Page3 = () => {
   const projects = [
@@ -29,7 +30,8 @@ const Page3 = () => {
     },
     {
       title: "BeAmongUs",
-      description: "A smart complaint management system for Municipal Corporation.",
+      description:
+        "A smart complaint management system for Municipal Corporation.",
       tags: ["JavaScript", "React", "Tailwind", "MongoDB", "Node.js"],
       features: [
         { icon: "lightbulb", text: "Innovative Solutions" },
@@ -47,7 +49,15 @@ const Page3 = () => {
       title: "PowerChoice",
       description:
         "Environmental impact assessment of power plant fuel choice using data-driven predicctive modeling.",
-      tags: ["JavaScript", "React", "ML", "Tailwind", "MongoDB", "Express.js", "Recharts"],
+      tags: [
+        "JavaScript",
+        "React",
+        "ML",
+        "Tailwind",
+        "MongoDB",
+        "Express.js",
+        "Recharts",
+      ],
       features: [
         { icon: "book", text: "Educational Projects" },
         { icon: "code", text: "Hands-on Coding" },
@@ -57,7 +67,7 @@ const Page3 = () => {
         live: "https://github.com/PurveshMali/PBL",
         github: "https://github.com/PurveshMali/PBL",
       },
-      image:powerChoice,
+      image: powerChoice,
       subtitle: "Project-Based Learning",
     },
     {
@@ -73,7 +83,7 @@ const Page3 = () => {
       siteLink: {
         github: "https://github.com/PurveshMali/HireSyncHackFest",
       },
-      image:hiresync,
+      image: hiresync,
       subtitle: "React Application",
     },
   ];
@@ -101,9 +111,11 @@ const Page3 = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:px-15">
+      <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 md:px-15">
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <FadeInSection>
+            <ProjectCard key={index} project={project} />
+          </FadeInSection>
         ))}
       </div>
     </div>

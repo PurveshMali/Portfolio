@@ -1,8 +1,10 @@
 import { Download, Percent } from "lucide-react";
 import React, { useRef } from "react";
-import { motion } from "framer-motion"; // Correct import (motion/react was wrong)
+import { motion } from "motion/react"; // Correct import (motion/react was wrong)
 import heroImage from "../assets/images/me.png"; // Adjust path if necessary
 import Page2 from "./Page2";
+import Button from "../animations/Button";
+import FadeInSection from "../animations/FadeInSection";
 
 const Page1 = () => {
   const page2Ref = useRef(null);
@@ -12,7 +14,12 @@ const Page1 = () => {
   return (
     <div className="w-full bg-black text-white md:mt-20 mt-15 lg:mt-20">
       {/* Header */}
-      <div className="flex justify-between items-center px-6 py-5 md:px-10 lg:px-20">
+      <motion.div
+        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -50 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+        className="flex justify-between items-center px-6 py-5 md:px-10 lg:px-20"
+      >
         <div>
           <h1 className="text-2xl md:text-3xl font-[font2]">
             DEV<span className="text-[#E64500] font-bold">.</span>
@@ -27,12 +34,17 @@ const Page1 = () => {
             </span>
           </button>
         </a>
-      </div>
+      </motion.div>
 
       {/* Main Section */}
       <div className="flex flex-col-reverse md:flex-row justify-center items-end w-full px-6 md:px-10 lg:px-20 py-0 md:py-6 gap-5">
         {/* Left Text Section */}
-        <div className="flex flex-col md:items-start items-center space-y-6 w-full md:w-1/2">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.3, ease: "easeInOut" }}
+          className="flex flex-col md:items-start items-center space-y-6 w-full md:w-1/2"
+        >
           <div className="flex items-center space-x-4">
             <h1 className="text-3xl md:text-5xl font-[font6] tracking-wide text-[#E64500]">
               Hey there,
@@ -42,7 +54,7 @@ const Page1 = () => {
               transition={{ duration: 1 }}
               whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
             >
-              <Percent className="text-gray-300 hidden md:block" size={50} />
+              <Percent className="text-gray-300 hidden md:block" size={55} />
             </motion.div>
           </div>
 
@@ -54,33 +66,47 @@ const Page1 = () => {
             Building Intelligent Experiences with Code & Creativity
           </h3>
           <div className="hidden md:flex space-x-4">
-            <button className="px-8 py-2 border-1 border-[#1E1E1E] text-medium text-[#E64500] font-mono hover:border-[#3d3d3d] transition-all ease-in-out duration-300 hover:px-10 hover:tracking-wider ">
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.3, delay: 0.5, ease: "easeInOut" }}
+              className="px-8 py-2 border-1 border-[#1E1E1E] text-medium text-[#E64500] font-mono hover:border-[#3d3d3d] transition-all ease-in-out duration-300 hover:px-10 hover:tracking-wider shadow-sm shadow-[#272727]"
+            >
               Work Together
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Image Section */}
         <div className="relative w-full md:w-1/2 flex justify-center items-center">
-          <div className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-b-3 border-b-[#E64500] overflow-hidden rounded-md ">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.3, delay: 0.5, ease: "easeInOut" }}
+            className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-b-3 border-b-[#E64500] overflow-hidden rounded-md "
+          >
             <img
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
               src={heroImage}
               alt="Hero"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="w-full h-auto px-6 py-10 md:px-10 lg:px-20 flex justify-center items-center">
-        <button
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.3, delay: 0.5, ease: "easeInOut" }}
           className="px-8 py-2 border-1 border-[#1E1E1E] text-medium text-[#E64500] font-mono hover:border-[#3d3d3d] transition-all ease-in-out duration-300 hover:px-10 hover:tracking-wider "
           onClick={handleScroll}
         >
           Know Me 👇
-        </button>
+        </motion.button>
       </div>
-
-      <Page2 ref={page2Ref} />
+      <FadeInSection>
+        <Page2 ref={page2Ref} />
+      </FadeInSection>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const FadeInSection = ({ children }) => {
   }, [controls, inView]);
 
   const variants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
@@ -25,7 +25,7 @@ const FadeInSection = ({ children }) => {
       initial="hidden"
       animate={controls}
       variants={variants}
-      className="mb-12"
+      className="mb-0"
       viewport={{ once: true }}
     >
       {children}

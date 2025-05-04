@@ -19,7 +19,7 @@ const App = () => {
     // Simulate loading time (e.g., 1.5 seconds)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 0.1);
+    }, 2000);
 
     return () => clearTimeout(timer); // cleanup
   }, []);

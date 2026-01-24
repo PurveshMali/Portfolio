@@ -1,4 +1,4 @@
-# 🚀 My Personal Portfolio
+# My Personal Portfolio
 
 This is the official repository for my professional portfolio website. It showcases my technical skills, featured projects, and provides a way for visitors to get in touch.
 

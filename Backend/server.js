@@ -5,6 +5,7 @@ const cors = require('cors');
 const notFound = require('./middleware/notFound');
 const errorHandler = require('./middleware/errorHandler');
 const contactRoutes = require('./routes/contactRoutes');
+const projectRoutes = require('./routes/projectRoutes');
 const connectDB = require('./config/db');
 
 dotenv.config();
@@ -15,7 +16,10 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
+
 app.use(express.json());
 
 
@@ -26,6 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/contact', contactRoutes);
+app.use('/api', projectRoutes);
 
 // Middleware
 app.use(notFound);

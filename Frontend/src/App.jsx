@@ -68,7 +68,6 @@ const App = () => {
         <LoadingAnimation />
       ) : (
         <div className="your-main-website-content">
-          {/* Your website code here */}
           <div className="bg-black h-auto w-full text-white border-1 border-gray-400">
             <CursorTrail />
             <Navbar />
@@ -78,7 +77,7 @@ const App = () => {
             </FadeInSection>
             <FadeInSection>
               <Page4 />
-            </FadeInSection>
+            </FadeInSection>  
             <FadeInSection>
               <Page5 />
             </FadeInSection>

@@ -1,16 +1,41 @@
 import { Link, MoveRight } from "lucide-react";
 import React from "react";
-import { motion, Reorder } from "motion/react"; // Correct import (motion/react was wrong)
+// import { motion, Reorder } from "motion/react"; // Correct import (motion/react was wrong)
 import studentThumbnail from "../assets/thumbnails/studentThumbnail.png";
 import beamongus from "../assets/thumbnails/beamongus.png";
 import powerChoice from "../assets/thumbnails/powerChoice.png";
 import hiresync from "../assets/thumbnails/hiresync.png";
+import { getAllProjects } from "../api/projectAPI";
 
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import FadeInSection from "../animations/FadeInSection";
+import { useEffect } from "react";
 
 const Page3 = () => {
+
+  const [allProjects, setAllProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  useEffect(() => {
+    const fetchProjects = async () =>{
+      try{
+        const res = await getAllProjects();
+        setAllProjects(res.data);
+        console.log(res.data);
+      }catch(err){
+        setError(err.response?.data?.message || 'Something went wrong');
+      }finally{
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, [])
+  
+
+
+
+  ///////////
   const projects = [
     {
       title: "EduConnect",
@@ -88,6 +113,7 @@ const Page3 = () => {
     },
   ];
 
+
   return (
     <div className="w-full h-auto px-4 py-10 md:px-10 lg:px-20">
       {/* Header */}
@@ -112,12 +138,12 @@ const Page3 = () => {
 
       {/* Projects Grid */}
       <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 md:px-15">
-        {projects.map((project, index) => (
+        {allProjects.slice(0.3).map((project, index) => (
           <FadeInSection>
             <ProjectCard key={index} project={project} />
           </FadeInSection>
         ))}
-      </div>
+      </div> 
     </div>
   );
 };

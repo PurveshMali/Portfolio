@@ -9,31 +9,33 @@ import { getAllProjects } from "../api/projectAPI";
 
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import ProjectDetailsModal from "../components/ProjectDetailsModal";
 import FadeInSection from "../animations/FadeInSection";
 import { useEffect } from "react";
 
 const Page3 = () => {
-
   const [allProjects, setAllProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  const [selectedProject, setSelectedProject] = useState(null);
   useEffect(() => {
-    const fetchProjects = async () =>{
-      try{
+    const fetchProjects = async () => {
+      try {
         const res = await getAllProjects();
         setAllProjects(res.data);
         console.log(res.data);
-      }catch(err){
-        setError(err.response?.data?.message || 'Something went wrong');
-      }finally{
+      } catch (err) {
+        setError(err.response?.data?.message || "Something went wrong");
+      } finally {
         setLoading(false);
       }
-    }
+    };
     fetchProjects();
-  }, [])
-  
+  }, []);
 
-
+  useEffect(() => {
+    document.body.style.overflow = selectedProject ? "hidden" : "auto";
+  }, [selectedProject]);
 
   ///////////
   const projects = [
@@ -113,7 +115,6 @@ const Page3 = () => {
     },
   ];
 
-
   return (
     <div className="w-full h-auto px-4 py-10 md:px-10 lg:px-20">
       {/* Header */}
@@ -139,11 +140,18 @@ const Page3 = () => {
       {/* Projects Grid */}
       <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 md:px-15">
         {allProjects.slice(0.3).map((project, index) => (
-          <FadeInSection>
-            <ProjectCard key={index} project={project} />
-          </FadeInSection>
+          <div key={project._id} onClick={() => setSelectedProject(project)}>
+            <FadeInSection>
+              <ProjectCard key={index} project={project} />
+            </FadeInSection>
+          </div>
         ))}
-      </div> 
+      </div>
+      {/* ProjectDetailsModal */}
+      <ProjectDetailsModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 };

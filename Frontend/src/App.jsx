@@ -11,6 +11,8 @@ import Page5 from "./pages/Page5";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
 import FadeInSection from "./animations/FadeInSection";
+import GitHubContributions from "./components/GitHubContributions";
+import HackathonsSection from "./components/HackathonsSection";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -70,17 +72,38 @@ const App = () => {
         <div className="your-main-website-content">
           <div className="bg-black h-auto w-full text-white border-1 border-gray-400">
             <CursorTrail />
-            <Navbar />
-            <Page1 />
+            <div id="home">
+              <Navbar />
+              <Page1 />
+            </div>
+            <div id="about">
+                <FadeInSection>
+                <Page2 />
+                </FadeInSection>
+            </div>
+            <div id="projects">
+                <FadeInSection>
+                <Page3 />
+                </FadeInSection>
+            </div>
             <FadeInSection>
-              <Page3 />
+              <GitHubContributions />
             </FadeInSection>
-            <FadeInSection>
-              <Page4 />
-            </FadeInSection>  
-            <FadeInSection>
-              <Page5 />
-            </FadeInSection>
+            <div id="hackathons">
+                <FadeInSection>
+                <HackathonsSection />
+                </FadeInSection>
+            </div>
+            <div id="skills">
+                <FadeInSection>
+                <Page4 />
+                </FadeInSection>  
+            </div>
+            <div id="contact">
+                <FadeInSection>
+                <Page5 />
+                </FadeInSection>
+            </div>
             <FadeInSection>
               <Footer />
             </FadeInSection>

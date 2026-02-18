@@ -9,6 +9,7 @@ import { getAllProjects } from "../api/projectAPI";
 
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import ProjectSkeleton from "../components/ProjectSkeleton";
 import ProjectDetailsModal from "../components/ProjectDetailsModal";
 import FadeInSection from "../animations/FadeInSection";
 import { useEffect } from "react";
@@ -37,83 +38,6 @@ const Page3 = () => {
     document.body.style.overflow = selectedProject ? "hidden" : "auto";
   }, [selectedProject]);
 
-  ///////////
-  const projects = [
-    {
-      title: "EduConnect",
-      description: "A platform for students to learn and earn.",
-      tags: ["JavaScript", "React", "Tailwind", "MongoDB", "Node.js", "ML"],
-      features: [
-        { icon: "users", text: "Community Collaboration" },
-        { icon: "code", text: "Code Sharing" },
-        { icon: "chat", text: "Developer Discussions" },
-      ],
-      siteLink: {
-        live: "https://student-portal-jvjs.vercel.app/",
-        github: "https://github.com/PurveshMali/StudentPortal",
-      },
-      image: studentThumbnail,
-      subtitle: "Collaborate and Share Code",
-    },
-    {
-      title: "BeAmongUs",
-      description:
-        "A smart complaint management system for Municipal Corporation.",
-      tags: ["JavaScript", "React", "Tailwind", "MongoDB", "Node.js"],
-      features: [
-        { icon: "lightbulb", text: "Innovative Solutions" },
-        { icon: "clock", text: "Time-bound Challenges" },
-        { icon: "trophy", text: "Award-winning Ideas" },
-      ],
-      siteLink: {
-        live: "https://github.com/PurveshMali/Hack-a-Bit",
-        github: "https://github.com/PurveshMali/Hack-a-Bit",
-      },
-      image: beamongus,
-      subtitle: "Hack-a-Bit Project",
-    },
-    {
-      title: "PowerChoice",
-      description:
-        "Environmental impact assessment of power plant fuel choice using data-driven predicctive modeling.",
-      tags: [
-        "JavaScript",
-        "React",
-        "ML",
-        "Tailwind",
-        "MongoDB",
-        "Express.js",
-        "Recharts",
-      ],
-      features: [
-        { icon: "book", text: "Educational Projects" },
-        { icon: "code", text: "Hands-on Coding" },
-        { icon: "graduation-cap", text: "Learning by Doing" },
-      ],
-      siteLink: {
-        live: "https://github.com/PurveshMali/PBL",
-        github: "https://github.com/PurveshMali/PBL",
-      },
-      image: powerChoice,
-      subtitle: "Project-Based Learning",
-    },
-    {
-      title: "HireSync",
-      description:
-        "A mobile application which helps daily wage workers to find jobs.",
-      tags: ["Flutter", "Firebase", "Dart", "ML"],
-      features: [
-        { icon: "react", text: "React Framework" },
-        { icon: "paint-brush", text: "Tailwind CSS Styling" },
-        { icon: "bolt", text: "Fast Performance" },
-      ],
-      siteLink: {
-        github: "https://github.com/PurveshMali/HireSyncHackFest",
-      },
-      image: hiresync,
-      subtitle: "React Application",
-    },
-  ];
 
   return (
     <div className="w-full h-auto px-4 py-10 md:px-10 lg:px-20">
@@ -139,13 +63,18 @@ const Page3 = () => {
 
       {/* Projects Grid */}
       <div className="mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 md:px-15">
-        {allProjects.slice(0.3).map((project, index) => (
-          <div key={project._id} onClick={() => setSelectedProject(project)}>
-            <FadeInSection>
-              <ProjectCard key={index} project={project} />
-            </FadeInSection>
-          </div>
-        ))}
+        {loading
+          ? [1, 2, 3].map((_, index) => <ProjectSkeleton key={index} />)
+          : allProjects.slice(0, 3).map((project, index) => (
+              <div
+                key={project._id}
+                onClick={() => setSelectedProject(project)}
+              >
+                <FadeInSection>
+                  <ProjectCard key={index} project={project} />
+                </FadeInSection>
+              </div>
+            ))}
       </div>
       {/* ProjectDetailsModal */}
       <ProjectDetailsModal

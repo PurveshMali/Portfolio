@@ -7,6 +7,7 @@ import Button from "../animations/Button";
 import FadeInSection from "../animations/FadeInSection";
 
 const Page1 = () => {
+  const [imgLoading, setImgLoading] = React.useState(true);
   const page2Ref = useRef(null);
   const handleScroll = () => {
     page2Ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -83,12 +84,18 @@ const Page1 = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.3, delay: 0.5, ease: "easeInOut" }}
-            className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-b-3 border-b-[#E64500] overflow-hidden rounded-md "
+            className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-b-3 border-b-[#E64500] overflow-hidden rounded-md bg-[#111]"
           >
+            {imgLoading && (
+               <div className="absolute inset-0 bg-[#1a1a1a] animate-pulse flex items-center justify-center">
+                  <div className="w-10 h-10 border-2 border-[#333] border-t-[#E64500] rounded-full animate-spin"></div>
+               </div>
+            )}
             <img
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+              className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out ${imgLoading ? "opacity-0" : "opacity-100"}`}
               src={heroImage}
               alt="Hero"
+              onLoad={() => setImgLoading(false)}
             />
           </motion.div>
         </div>

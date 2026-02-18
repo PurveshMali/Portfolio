@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 @font-face {
     font-family: font1;
     src: url('./assets/fonts/i7dMIFZifjKcF5UAWdDRaPpZUFWaHg.woff2') format('woff2');

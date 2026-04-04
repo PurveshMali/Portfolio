@@ -111,9 +111,6 @@ const Page1 = () => {
           Know Me 👇
         </motion.button>
       </div>
-      <FadeInSection>
-        <Page2 ref={page2Ref} />
-      </FadeInSection>
     </div>
   );
 };
